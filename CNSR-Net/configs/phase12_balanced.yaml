@@ -1,0 +1,22 @@
+# Canonical runtime configuration for the single-frame balanced selection.
+# Run commands from CNSR-Net-main/CNSR-Net. The calibration artifact is tracked
+# with the repository; the CLIP checkpoint is not, see docs/reproduce_balanced.md.
+models:
+  clip_checkpoint: ../repro_assets/balanced_phase12/weights/ViT-L-14-336px.pt
+components:
+  spatial: configs/phase1_shared_coarse_bf16.yaml
+  semantic: configs/phase12_balanced_semantic.yaml
+  temporal: configs/phase12_balanced_temporal.yaml
+model_variants:
+  default: main
+  main:
+    name: CNSR-Net Balanced
+    method: A3_spatial_semantic_temporal
+    aggregation: maximum_temporally_filtered_evidence
+    artifact: ../repro_assets/balanced_phase12/balanced_calibration.pt
+evaluation:
+  alpha: 0.4
+  nominal_sampling_seconds: 60
+  bootstrap_samples: 1000
+  bootstrap_seed: 42
+  false_alarm_counting: each_positive_normal_frame

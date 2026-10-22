@@ -1,0 +1,9 @@
+temporal_filtering:
+  window_seconds: 240
+  nominal_sampling_seconds: 60
+  low_threshold_quantile: 0.9
+  persistence_thresholds:
+    coarse: 0.8
+    medium: 0.7
+    fine: 0.6
+  use_spatial_neighborhood: true

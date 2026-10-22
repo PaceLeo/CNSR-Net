@@ -1,0 +1,1 @@
+repro_assets/balanced_phase12/weights/ViT-L-14-336px.pt filter=lfs diff=lfs merge=lfs -text

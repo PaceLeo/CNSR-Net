@@ -1,0 +1,32 @@
+model:
+  architecture: ViT-L/14@336px
+  checkpoint: ~/.cache/clip/ViT-L-14-336px.pt
+  input_resolution: 336
+  feature_dim: 768
+  freeze: true
+
+spatial_hierarchical:
+  pyramid_scales:
+    - name: coarse
+      grid_size: [6, 6]
+      overlap: 0.1
+    - name: medium
+      grid_size: [12, 12]
+      overlap: 0.25
+    - name: fine
+      grid_size: [20, 20]
+      overlap: 0.4
+  num_prototypes: 8
+  distance_metric: euclidean
+  normalize_novelty: true
+
+inference:
+  patch_batch_size: 256
+  use_amp: true
+  encoding:
+    mode: shared_coarse_tokens
+    source_scale: coarse
+    token_layer: 24
+    roi_output_size: 3
+    context_weight: 0.5
+    amp_dtype: bfloat16

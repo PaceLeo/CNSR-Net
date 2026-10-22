@@ -1,0 +1,38 @@
+semantic_residual:
+  mode: multidim
+  use_contrast: true
+  weights:
+    smoke: 0.45
+    flame: 0.4
+    cloud: 0.6
+  prompts:
+    fire:
+      - wildfire smoke rising from forest
+      - smoke plume from vegetation fire
+      - early stage wildfire with thin smoke
+      - dense smoke from burning trees
+      - fire flame and smoke
+    normal:
+      - clear sky over forest
+      - normal daytime landscape
+      - healthy vegetation with no smoke
+      - peaceful natural scenery
+      - distant mountains under a clear sky
+    smoke:
+      - thin smoke from early wildfire
+      - smoke plume rising behind a mountain ridge
+      - small column of wildfire smoke in the distance
+      - gray smoke rising from burning vegetation
+      - white wildfire smoke above a forest
+    flame:
+      - orange flames burning vegetation
+      - wildfire flames and smoke in a forest
+      - fire glow from burning trees
+      - active vegetation fire with visible flames
+      - flames at the base of a smoke plume
+    cloud:
+      - white cloud in sky
+      - fog over landscape
+      - low clouds around mountains
+      - atmospheric haze over a valley
+      - marine layer covering distant hills
